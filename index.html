@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Medical & Travel Expense Request</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="pdf-content">
+  <header class="header">
+    <div class="logo">
+      <!-- <img src="logo.png" alt="Logo" /> -->
+      <img 
+  src="https://raw.githubusercontent.com/ayushaditya6/Task-1/main/logo.png" 
+  alt="Logo" 
+  crossorigin="anonymous" 
+  style="height: 60px;" 
+/>
+
+
+    </div>
+    <div class="contact-info">
+      <p><strong>333 Broadway</strong><br>
+      Winnipeg, MB R3C 4W3<br>
+      Phone: (204) 954-4321<br>
+      Toll Free: 1-855-954-4321<br>
+      <a href="https://wcb.mb.ca">wcb.mb.ca</a></p>
+    </div>
+    <div class="title-box">
+      <h2>Medical & Travel Expense Request</h2>
+      <div class="claim-box">Claim No. <span id="claim-number">20042047</span></div>
+    </div>
+  </header>
+  <section id="user-info">
+    <form id="username-form">
+      <label for="username"><strong>Enter Your Name:</strong></label>
+      <input type="text" id="username" placeholder="Your full name" required />
+      <button type="submit">Confirm</button>
+    </form>
+  
+    <p id="confirmation-text" style="display: none;"></p>
+  </section>
+  
+  <main>
+    <!-- Prescription Drugs -->
+    <section>
+      <h3>Prescription Drugs</h3>
+      <form id="prescription-form">
+        <input type="text" id="drugName" placeholder="Drug Name" required>
+        <input type="date" id="drugDate" required>
+        <input type="text" id="provider" placeholder="Healthcare Provider" required>
+        <input type="text" id="amount" placeholder="Paid Amount" required>
+        <button type="submit">Add</button>
+      </form>
+      <table>
+        <thead><tr><th>Drug Name</th><th>Date</th><th>Provider</th><th>Amount</th></tr></thead>
+        <tbody id="prescription-body"></tbody>
+      </table>
+    </section>
+
+    <!-- OTC Drugs -->
+    <section>
+      <h3>Over-the-Counter Drugs</h3>
+      <form id="otc-form">
+        <input type="text" id="otcName" placeholder="Drug Name" required>
+        <input type="date" id="otcDate" required>
+        <input type="text" id="otcAmount" placeholder="Paid Amount" required>
+        <input type="text" id="otcSeller" placeholder="Seller's Name" required>
+        <input type="text" id="otcReason" placeholder="Reason" required>
+        <button type="submit">Add</button>
+      </form>
+      <table>
+        <thead><tr><th>Drug Name</th><th>Date</th><th>Amount</th><th>Seller</th><th>Reason</th></tr></thead>
+        <tbody id="otc-body"></tbody>
+      </table>
+    </section>
+
+    <!-- Medical Supplies -->
+    <section>
+      <h3>Bandages, Braces or Other Medical Supplies</h3>
+      <form id="supplies-form">
+        <input type="text" id="itemName" placeholder="Item Name" required>
+        <input type="date" id="itemDate" required>
+        <input type="text" id="prescribed" placeholder="Was it Prescribed?" required>
+        <input type="text" id="supplyAmount" placeholder="Paid Amount" required>
+        <input type="text" id="supplySeller" placeholder="Seller's Name" required>
+        <button type="submit">Add</button>
+      </form>
+      <table>
+        <thead><tr><th>Item</th><th>Date</th><th>Prescribed</th><th>Amount</th><th>Seller</th></tr></thead>
+        <tbody id="supplies-body"></tbody>
+      </table>
+    </section>
+
+    <!-- Parking -->
+    <section>
+      <h3>Parking for Medical Appointments</h3>
+      <form id="parking-form">
+        <input type="text" id="parkingAddress" placeholder="Facility Address" required>
+        <input type="date" id="parkingDate" required>
+        <input type="text" id="parkingAmount" placeholder="Paid Amount" required>
+        <input type="text" id="meterNumber" placeholder="Meter Number" required>
+        <button type="submit">Add</button>
+      </form>
+      <table>
+        <thead><tr><th>Address</th><th>Date</th><th>Amount</th><th>Meter</th></tr></thead>
+        <tbody id="parking-body"></tbody>
+      </table>
+    </section>
+
+    <!-- Mileage -->
+    <section>
+      <h3>Mileage to Medical Appointments</h3>
+      <form id="mileage-form">
+        <input type="date" id="mileDate" required>
+        <input type="text" id="mileFrom" placeholder="From (Provider Address)" required>
+        <input type="text" id="mileTo" placeholder="To (Workplace Address)" required>
+        <input type="text" id="mileKM" placeholder="Distance (km)" required>
+        <button type="submit">Add</button>
+      </form>
+      <table>
+        <thead><tr><th>Date</th><th>From</th><th>To</th><th>Distance</th></tr></thead>
+        <tbody id="mileage-body"></tbody>
+      </table>
+    </section>
+
+    <!-- Bus/Taxi Fare -->
+    <section>
+      <h3>Bus or Taxi Fare</h3>
+      <form id="fare-form">
+        <input type="date" id="fareDate" required>
+        <input type="text" id="fareFrom" placeholder="Starting Point" required>
+        <input type="text" id="fareTo" placeholder="Facility Address" required>
+        <select id="fareMode" required>
+          <option value="">Select Mode</option>
+          <option>Bus</option>
+          <option>Taxi</option>
+        </select>
+        <input type="text" id="fareAmount" placeholder="Fare Amount" required>
+        <button type="submit">Add</button>
+      </form>
+      <table>
+        <thead><tr><th>Date</th><th>From</th><th>To</th><th>Mode</th><th>Amount</th></tr></thead>
+        <tbody id="fare-body"></tbody>
+      </table>
+    </section>
+  </main>
+  <button id="download-pdf">Download as PDF</button>
+
+  <footer>
+    <p>I understand that the Privacy Notice applies to the personal information collected in this document.</p>
+  </footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="script.js"></script>
+
+  
+</body>
+</html>
